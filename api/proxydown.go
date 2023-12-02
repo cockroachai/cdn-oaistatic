@@ -50,6 +50,10 @@ func ProxyDown(r *ghttp.Request) {
 	// }
 
 	proxy.ModifyResponse = func(resp *http.Response) error {
+		if resp.StatusCode != 200 {
+			g.Log().Info(ctx, r.RequestURI, "status code", resp.StatusCode)
+			return nil
+		}
 		// 读取body
 		staticbody, err := io.ReadAll(resp.Body)
 		if err != nil {
