@@ -1,0 +1,4 @@
+chat.html
+discovery.html
+editor.html
+mine.html
