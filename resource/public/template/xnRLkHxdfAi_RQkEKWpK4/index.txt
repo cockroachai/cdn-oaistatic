@@ -1,4 +1,8 @@
+20231208.md
 chat.html
 discovery.html
 editor.html
+gc.html
+g.html
 mine.html
+slug.html

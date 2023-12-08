@@ -3,6 +3,11 @@
 # 定义索引文件的名称
 index_file="index.txt"
 
+# 如果文件不存在，则创建文件
+if [ ! -f $index_file ]; then
+    touch $index_file
+fi
+
 # 获取脚本自身的名称
 script_name=$(basename $0)
 
