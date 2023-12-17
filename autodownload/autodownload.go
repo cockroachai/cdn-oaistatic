@@ -15,7 +15,7 @@ var (
 
 func AutoDownload(ctx g.Ctx, refreshCookie string) {
 	g.Log().Info(ctx, "AutoDownload is running...")
-	client.SetProxy("http://127.0.0.1:8006")
+	client.SetProxy("http://127.0.0.1:9016")
 	client.SetCookie("__Secure-next-auth.session-token", refreshCookie)
 	res, err := client.Get(ctx, "https://chat.openai.com")
 	if err != nil {
