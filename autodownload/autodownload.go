@@ -98,6 +98,25 @@ func AutoDownload(ctx g.Ctx, refreshCookie string) {
 		gfile.PutContents("./resource/public/template/"+buildId+"/discovery.html", discoveryhtml)
 	}
 
+	// 下载 https://chat.openai.com/gpts 为 ./resource/public/template/{{.buildId}}/gpts.html
+	if !gfile.Exists("./resource/public/template/" + buildId + "/gpts.html") {
+
+		res, err = client.Get(ctx, "https://chat.openai.com/gpts")
+		if err != nil {
+			g.Log().Error(ctx, err)
+			return
+		}
+		defer res.Close()
+		// res.RawDump()
+		if res.StatusCode != 200 {
+			g.Log().Error(ctx, "StatusCode is not 200", res.StatusCode)
+			return
+		}
+		gptshtml := res.ReadAllString()
+		gptshtml = processHTML(gptshtml)
+		gfile.PutContents("./resource/public/template/"+buildId+"/gpts.html", gptshtml)
+	}
+
 	// 下载 https://chat.openai.com/g/g-2fkFE8rbu-dall-e 为 ./resource/public/template/{{.buildId}}/g.html
 	if !gfile.Exists("./resource/public/template/" + buildId + "/g.html") {
 
