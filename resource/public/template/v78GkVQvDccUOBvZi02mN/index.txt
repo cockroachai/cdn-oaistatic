@@ -1,0 +1,8 @@
+chat.html
+discovery.html
+editor.html
+gc.html
+g.html
+gpts.html
+mine.html
+slug.html
