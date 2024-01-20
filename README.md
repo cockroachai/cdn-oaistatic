@@ -1,6 +1,8 @@
 # cdn-oaistatic
 静态资源CDN,适用于`ChatGpt-Mirror-Server`及`cockroachai`等项目。
 
+最新静态资源已迁移发布至 [https://github.com/oaistatic/oaistatic.github.io](https://github.com/oaistatic/oaistatic.github.io)
+
 ## 部署方法
 
 创建`docker-compose.yml`文件，内容如下：
